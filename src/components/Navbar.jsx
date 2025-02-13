@@ -5,12 +5,14 @@ function Navbar() {
     <nav>
       <div className="logo-container">
         <Link to="/">
-          <img src="./src/assets/KevTech.png" alt="KevTech-logo" />
+          <img src="./src/assets/KevTech.png" alt="KevTech-logo" title="Go home"/>
         </Link>
       </div>
 
       <div className="menu-container">
-        <i className="bi bi-cast"></i>
+        <Link to="/aboutPage">
+          <i className="bi bi-plus-circle-fill" title="Add New"></i>
+        </Link>
       </div>
     </nav>
   )

@@ -1,19 +1,31 @@
+/* Global styles */
 * {
   padding: 0;
   margin: 0;
-  text-decoration: none !important ;
+  text-decoration: none !important;
+}
+
+#root {
+  background-color: #c9d4e8;
 }
 
 .App {
   height: 100vh;
 }
 
+h4 {
+  display: flex;
+  margin: 20px 5px;
+}
+
+
+/* Navbar Styles */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  background-color: purple;
+  background: linear-gradient(to bottom, #141e30, #243b55);
   color: white;
   height: 12vh;
 }
@@ -33,20 +45,18 @@ nav p {
   width: 100px;
 }
 
-.card-img-top {
-  width: 100px;
+.menu-container i{
+  color: white;
+  font-size: 2rem;
 }
 
-h4 {
-  display: flex;
-  margin: 20px 5px;
-}
 
+/* Footer styles */
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: purple;
+  background: linear-gradient(to top, #141e30, #243b55);
   height: 8vh;
 }
 
