@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none !important ;
+}
+
+.App {
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: purple;
+  color: white;
+  height: 12vh;
+}
+
+nav p {
+  margin: 0 20px
+}
+
+.menu-container,
+.logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.logo-container img {
+  width: 100px;
+}
+
+.card-img-top {
+  width: 100px;
+}
+
+h4 {
+  display: flex;
+  margin: 20px 5px;
+}
