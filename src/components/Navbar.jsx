@@ -1,8 +1,12 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav>
       <div className="logo-container">
-        <img src="./src/assets/KevTech.png" alt="KevTech-logo" />
+        <Link to="/">
+          <img src="./src/assets/KevTech.png" alt="KevTech-logo" />
+        </Link>
       </div>
 
       <div className="menu-container">
