@@ -38,7 +38,10 @@ export default function NewsDetailsPage() {
           <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
         </Link>
 
-        <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
+        <Link to="/AddForm">
+          <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
+        </Link>
+
         <button className='btn-delete' title='Delete new'><i className="bi bi-trash-fill"></i></button>
       </div>
     </div>
