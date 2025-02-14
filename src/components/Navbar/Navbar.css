@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background: linear-gradient(to bottom, #141e30, #243b55);
+    color: white;
+    height: 12vh;
+  }
+  
+  nav p {
+    margin: 0 20px
+  }
+  
+  .menu-container,
+  .logo-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+  }
+  
+  .logo-container img {
+    width: 100px;
+  }
+  
+  .menu-container i{
+    color: white;
+    font-size: 2rem;
+  }
+  

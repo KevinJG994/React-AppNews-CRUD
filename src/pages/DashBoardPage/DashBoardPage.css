@@ -1,0 +1,118 @@
+.dashboard {
+    max-width: 1280px;
+    min-height: 80vh;
+    margin: 0 auto;
+    padding: 10px 50px;
+    text-align: center;
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttons-container button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buttons-container button:hover {
+    color: #314e6fb4;
+}
+
+.buttons-container button i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(to right, #141e30, #243b55);
+    border-radius: 50%;
+    margin-right: 10px;
+    color: white;
+    padding: 5px;
+}
+
+.buttons-container button i:hover {
+    background: #314e6fb4;
+}
+
+.newsInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+
+.newsInfo i {
+    margin-right: 10px;
+}
+
+.card-text {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.cardImage {
+    flex-shrink: 0;
+    width: 120px;
+    margin: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.page-link {
+    color: #243b55;
+}
+
+.page-link:hover {
+    background-color: #243b55;
+    color: white;
+}
+
+.page-item:active {
+    background-color: #243b55;
+    color: white;
+}
+
+.active>.page-link {
+    background-color: #243b55;
+}

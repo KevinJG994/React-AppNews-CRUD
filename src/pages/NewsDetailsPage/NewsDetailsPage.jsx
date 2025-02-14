@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './NewsDetailsPage.css'
 
 export default function NewsDetailsPage() {
   return (
@@ -36,7 +37,7 @@ export default function NewsDetailsPage() {
         <Link to="/">
           <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
         </Link>
-        
+
         <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
         <button className='btn-delete' title='Delete new'><i className="bi bi-trash-fill"></i></button>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './DashBoardPage.css'
 
 export default function DashBoardPage() {
     return (
@@ -15,7 +16,7 @@ export default function DashBoardPage() {
 
             <div className='dashboard-content'>
                 <h4>News</h4>
-                
+
                 <Link to="/newsDetailsPage">
                     <div className="card">
                         <div className='card-content'>
@@ -35,6 +36,22 @@ export default function DashBoardPage() {
                     </div>
                 </Link>
 
+            </div>
+
+            <div aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <span class="page-link"> <i className="bi bi-arrow-left"></i></span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">2</span>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#"><i className="bi bi-arrow-right"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     )

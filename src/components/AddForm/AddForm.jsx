@@ -1,33 +1,31 @@
+import './AddForm.css'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function AddForm() {
     const navigate = useNavigate()
 
-    const [name, setName] = useState("")
-    const [description, setDescription] = useState("")
+    const [title, setTitle] = useState("")
+    const [subTitle, setSubTitle] = useState("")
     const [image, setImage] = useState("")
-    const [brand, setBrand] = useState("")
-    const [model, setModel] = useState("")
-    const [stock, setStock] = useState()
-    const [price, setPrice] = useState()
-    const [category, setCategory] = useState("")
-    const [operatingSystem, setOperatingSystem] = useState("")
+    const [article, setArticle] = useState("")
+    const [tags, setTags] = useState("")
+    const [date, setDate] = useState("")
+    const [editor, setEditor] = useState("")
 
-    const handleName = e => setName(e.target.value);
+    const handleTitle = e => setTitle(e.target.value);
     const handleImage = e => setImage(e.target.value);
-    const handleDescription = e => setDescription(e.target.value);
-    const handleBrand = e => setBrand(e.target.value);
-    const handleModel = e => setModel(e.target.value);
-    const handleStock = e => setStock(e.target.value);
-    const handlePrice = e => setPrice(e.target.value);
-    const handleCategory = e => setCategory(e.target.value);
-    const handleOperatingSystem = e => setOperatingSystem(e.target.value);
+    const handleSubTitle = e => setSubTitle(e.target.value);
+    const handleArticle = e => setArticle(e.target.value);
+    const handleTags = e => setTags(e.target.value);
+    const handleDate = e => setDate(e.target.value);
+    const handleEditor = e => setEditor(e.target.value);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newProduct = { id: 31, name, description, image, brand, model, stock, price, category, operatingSystem }
+        const newProduct = { id: 11, title, subTitle, image, article, tags, date, editor }
 
         console.log("Submitted: ", newProduct);
 
@@ -39,57 +37,70 @@ export default function AddForm() {
     }
 
     function clearForm() {
-        setName("")
-        setDescription("")
+        setTitle("")
+        setSubTitle("")
         setImage("")
-        setBrand("")
-        setModel("")
-        setStock("")
-        setPrice("")
+        setArticle("")
+        setTags("")
+        setDate("")
+        setEditor("")
         setCategory("")
         setOperatingSystem("")
     }
 
 
     return (
-        <div className="form-container">
-            <form onSubmit={handleSubmit}>
-                <h2>Add Product</h2>
-                <img src="../src/assets/KevTech.png" className="form-image" />
-                <div className="form-grid">
+        <form className='formContent'>
 
-                    <input name="Name" type="text" placeholder="Name" value={name} onChange={handleName} required />
-
-                    <input name="Description" type="text" placeholder="Description" value={description} onChange={handleDescription} required />
-
-                    <input name="Image" type="url" placeholder="Product Image" value={image} onChange={handleImage} required />
-
-                    <input name="Brand" type="text" placeholder="Brand" value={brand} onChange={handleBrand} required />
-
-                    <input name="Model" type="text" placeholder="Model" value={model} onChange={handleModel} required />
-
-                    <input name="Stock" type="number" placeholder="Stock" value={parseInt.stock} onChange={handleStock} required />
-
-                    <input name="Price" type="text" placeholder="Price" value={parseFloat.price} onChange={handlePrice} required />
-
-                    <select name="Category" value={category} onChange={handleCategory} required>
-                        <option value="" disabled>Category</option>
-                        <option value="SmartPhone">SmartPhone</option>
-                        <option value="Laptop">Laptop</option>
-                        <option value="Tablet">Tablet</option>
-                    </select>
-
-                    <select name="OperatingSystem" value={operatingSystem} onChange={handleOperatingSystem} required>
-                        <option value="" disabled>Operating System</option>
-                        <option value="Windows">Windows</option>
-                        <option value="macOs">macOs</option>
-                        <option value="Android">Android</option>
-                        <option value="iOs">iOs</option>
-                    </select>
-
+            <div className='form-header'>
+                <div className='form-img'>
+                    <input name="Image" type="file" value={image} onChange={handleImage} required />
                 </div>
-                <button type="submit">Add Product</button>
-            </form>
-        </div>
+                <div className="form-title">
+                    <input name="Title" type="text" placeholder="Title" value={title} onChange={handleTitle} required />
+                </div>
+            </div>
+
+            <div className='form-editor-info'>
+                <div>
+                    <i className="bi bi-person"></i>
+                    <select name="Editor" value={editor} onChange={handleEditor} required>
+                        <option value="" disabled>---</option>
+                        <option value="Jose-Luis">Jose Luis</option>
+                        <option value="Elena-Ruiz">Elena Ruiz</option>
+                        <option value="Diego-Herrera">Diego Herrera</option>
+                    </select>
+                </div>
+
+                <div>
+                    <i className="bi bi-calendar2-week"></i>
+                    <input name="Date" type="date" value={date} onChange={handleDate} required />
+                </div>
+            </div>
+
+            <hr />
+
+            <div className='form-info'>
+                <input name="SubTitle" type="text" placeholder="SubTitle" value={subTitle} onChange={handleSubTitle} required />
+                <textarea name="Article" type="text" placeholder="Article" value={article} onChange={handleArticle} className='articleInput' required />
+
+                <h5>Tags</h5>
+                <select name="Tags" value={tags} onChange={handleTags} className='tagSelect' required>
+                    <option value="" disabled>---</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Videogames">Videogames</option>
+                    <option value="Economy">Economy</option>
+                </select>
+            </div>
+
+            <hr />
+
+            <div className='formButtons'>
+                <Link to="/">
+                    <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
+                </Link>
+                <button className='btn-addArticle' title='Add Article'><i className="bi bi-plus-lg"></i></button>
+            </div>
+        </form>
     );
 }
