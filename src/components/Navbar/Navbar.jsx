@@ -10,7 +10,7 @@ function Navbar() {
       </div>
 
       <div className="menu-container">
-        <Link to="/aboutPage">
+        <Link to="/addForm">
           <i className="bi bi-plus-circle-fill" title="Add New"></i>
         </Link>
       </div>
