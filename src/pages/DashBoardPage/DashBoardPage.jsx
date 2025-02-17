@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './DashBoardPage.css'
+import ListItems from '../../components/ListItems/ListItems'
 
 export default function DashBoardPage() {
     return (
@@ -14,42 +14,20 @@ export default function DashBoardPage() {
                 </div>
             </div>
 
-            <div className='dashboard-content'>
-                <h4>News</h4>
-
-                <Link to="/newsDetailsPage">
-                    <div className="card">
-                        <div className='card-content'>
-                            <div className='cardImage'>
-                                <img src="./src/assets/KevTech.png" className="card-img-top" />
-                            </div>
-                            <div className="card-body">
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                <div className='newsInfo'>
-                                    <p><i className="bi bi-person"></i>User</p>
-                                    <p><i className="bi bi-calendar2-week"></i>Date</p>
-                                    <p>Tag</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-
-            </div>
+          <ListItems/>
 
             <div aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <span class="page-link"> <i className="bi bi-arrow-left"></i></span>
+                <ul className="pagination justify-content-center">
+                    <li className="page-item disabled">
+                        <span className="page-link"> <i className="bi bi-arrow-left"></i></span>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">2</span>
+                    <li className="page-item"><a className="page-link" href="#">1</a></li>
+                    <li className="page-item active" aria-current="page">
+                        <span className="page-link">2</span>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#"><i className="bi bi-arrow-right"></i></a>
+                    <li className="page-item"><a className="page-link" href="#">3</a></li>
+                    <li className="page-item">
+                        <a className="page-link" href="#"><i className="bi bi-arrow-right"></i></a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,54 @@
+.card-text {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.cardImage {
+    flex-shrink: 0;
+    width: 120px;
+    margin: 20px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.newsInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    font-size: 1.2rem;
+}
+
+.newsInfo i {
+    margin-right: 10px;
+}
