@@ -1,49 +1,65 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import './NewsDetailsPage.css'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export default function NewsDetailsPage() {
+  // Petición GET mediante Axios para obtener todos los elementos del Id seleccionado
+  const API_URL = 'http://localhost:5005/news'
+  const [news, setNews] = useState([])
+
+  const { newId } = useParams();
+
+  const getNewById = () => {
+    axios
+      .get(`${API_URL}/${newId}`)
+      .then(response => setNews(response.data))
+      .catch(error => console.log(error))
+  }
+
+  useEffect(() => {
+    getNewById()
+  }, [])
+
   return (
-    <div className='details-content'>
+    <div className='details-content' >
+              <div className='card-content' >
+                <div className='cardImage'>
+                  <img src={news.image} className="card-img-top" />
+                </div>
+                <div className="card-body">
+                  <p className="card-text">{news.title}</p>
+                </div>
+              </div>
 
-      <div className='card-content'>
-        <div className='cardImage'>
-          <img src="./src/assets/developer_image.png" className="card-img-top" />
-        </div>
-        <div className="card-body">
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
+              <div className='newsInfo'>
+                <p><i className="bi bi-person"></i>{news.editor}</p>
+                <p><i className="bi bi-calendar2-week"></i>{news.date}</p>
+              </div>
 
-      <div className='newsInfo'>
-        <p><i className="bi bi-person"></i>User</p>
-        <p><i className="bi bi-calendar2-week"></i>Date</p>
-      </div>
+              <hr />
 
-      <hr />
+              <div className='newsDescription'>
+                <h5>{news.subTitle}</h5>
+                <p>{news.article}</p>
 
-      <div className='newsDescription'>
-        <h5>Title</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam totam perspiciatis error, repudiandae aperiam praesentium dolores in atque officiis impedit nam harum velit magnam voluptatum blanditiis quam corrupti facere. Ducimus.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, sed dolore odit repudiandae quos fugiat iusto tempora corporis ducimus amet inventore repellat nemo a, quo sunt, quae veritatis reiciendis officiis.
-        </p>
-        <h5>Tags</h5>
-        <p>Tag</p>
-      </div>
+                <h5>Tags</h5>
+                <p>{news.tags}</p>
+              </div>
 
-      <hr />
+              <hr />
 
-      <div className='newsButtons'>
-        <Link to="/">
-          <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
-        </Link>
+              <div className='newsButtons'>
+                <Link to="/">
+                  <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
+                </Link>
 
-        <Link to="/AddForm">
-          <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
-        </Link>
+                <Link to="/AddForm">
+                  <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
+                </Link>
 
-        <button className='btn-delete' title='Delete new'><i className="bi bi-trash-fill"></i></button>
-      </div>
+                <button className='btn-delete' title='Delete new'><i className="bi bi-trash-fill"></i></button>
+              </div>
     </div>
   )
 }

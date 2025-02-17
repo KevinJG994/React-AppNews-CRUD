@@ -17,7 +17,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<DashBoardPage />} />
-        <Route path='/newsDetailsPage' element={<NewsDetailsPage />} />
+        <Route path='/newsDetailsPage/:newId' element={<NewsDetailsPage />} />
         <Route path='/aboutPage' element={<AboutPage />} />
         <Route path='/addForm' element={<AddForm />} />
         <Route path="*" element={<NotFoundPage />} />
