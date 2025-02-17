@@ -1,9 +1,9 @@
-import './AddForm.css'
-import axios from 'axios'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 
-export default function AddForm({ counter }) {
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+
+export default function UpdateForm() {
     const [title, setTitle] = useState("")
     const [subtitle, setSubTitle] = useState("")
     const [image, setImage] = useState("")
@@ -12,54 +12,44 @@ export default function AddForm({ counter }) {
     const [date, setDate] = useState("")
     const [editor, setEditor] = useState("")
 
-
     const API_URL = "http://localhost:5005/news"
+    const { newId } = useParams();
     const navigate = useNavigate()
 
-    // Función para agregar un nuevo registro
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        axios
+            .get(`${API_URL}/${newId}`)
+            .then(response => {
+                const editArticle = response.data
+                setTitle(editArticle.title)
+                setSubTitle(editArticle.subtitle)
+                setImage(editArticle.image)
+                setArticle(editArticle.article)
+                setTags(editArticle.tags)
+                setDate(editArticle.date)
+                setEditor(editArticle.editor)
+            })
+            .catch(error => console.log(error))
+    }, [newId])
+
+    // Función para modificar un nuevo registro
+    const handleUpdateSubmit = (e) => {
         e.preventDefault();
 
-        const addArticle = { id: counter, title, subtitle, image, article, tags, date, editor }
+        const edit = { title, subtitle, image, article, tags, date, editor }
+
+
         axios
-            .post(`${API_URL}`, addArticle)
+            .put(`${API_URL}/${newId}`, edit)
             .then(response => {
-                navigate("/");
+
+                navigate(`/newsDetailsPage/${newId}`);
             })
             .catch(error => console.log(error))
     }
 
-
-   // Función para modificar un nuevo registro
-    // const handleUpdateSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     const { newId } = useParams();
-
-
-    //     useEffect(() => {
-    //         axios
-    //             .put(`${API_URL}/editForm/${newId}`)
-    //             .then(response => {
-    //                 const editArticle = response.data
-    //                 setTitle(editArticle.title)
-    //                 setSubTitle(editArticle.subTitle)
-    //                 setImage(editArticle.image)
-    //                 setArticle(editArticle.article)
-    //                 setTags(editArticle.tags)
-    //                 setDate(editArticle.date)
-    //                 setEditor(editArticle.editor)
-    //             })
-    //             .catch(error => console.log(error))
-
-
-    //     }, [newId])
-
-    // }
-
-
     return (
-        <form className='formContent' onSubmit={handleSubmit}>
+        <form className='formContent' onSubmit={handleUpdateSubmit}>
 
             <div className='form-header' >
                 <div className='form-img'>
@@ -108,7 +98,7 @@ export default function AddForm({ counter }) {
                 <Link to="/">
                     <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
                 </Link>
-                <button className='btn-addArticle' title='Add Article' type='submit'><i className="bi bi-plus-lg"></i></button>
+                <button className='btn-addArticle' title='Edit Article' type='submit'><i className="bi bi-plus-lg"></i></button>
             </div>
         </form>
     );

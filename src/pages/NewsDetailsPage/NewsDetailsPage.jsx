@@ -54,7 +54,7 @@ export default function NewsDetailsPage() {
                   <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
                 </Link>
 
-                <Link to="/AddForm">
+                <Link to={`/EditForm/${newId}`}>
                   <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
                 </Link>
 
