@@ -8,8 +8,14 @@ import NewsDetailsPage from './pages/NewsDetailsPage/NewsDetailsPage'
 import AboutPage from './pages/AboutPage/AboutPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import AddForm from './components/AddForm/AddForm'
+import { useState } from 'react'
 
 function App() {
+  const [counter, setCounter] = useState(10)
+
+  const addCounter = () => {
+    setCounter(counter => counter +1)
+  }
 
   return (
     <>
@@ -19,7 +25,7 @@ function App() {
         <Route path='/' element={<DashBoardPage />} />
         <Route path='/newsDetailsPage/:newId' element={<NewsDetailsPage />} />
         <Route path='/aboutPage' element={<AboutPage />} />
-        <Route path='/addForm' element={<AddForm />} />
+        <Route path='/addForm' element={<AddForm  counter={addCounter}/>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
