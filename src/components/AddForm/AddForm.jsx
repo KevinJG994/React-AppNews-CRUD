@@ -29,35 +29,6 @@ export default function AddForm({ counter }) {
             .catch(error => console.log(error))
     }
 
-
-   // Función para modificar un nuevo registro
-    // const handleUpdateSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     const { newId } = useParams();
-
-
-    //     useEffect(() => {
-    //         axios
-    //             .put(`${API_URL}/editForm/${newId}`)
-    //             .then(response => {
-    //                 const editArticle = response.data
-    //                 setTitle(editArticle.title)
-    //                 setSubTitle(editArticle.subTitle)
-    //                 setImage(editArticle.image)
-    //                 setArticle(editArticle.article)
-    //                 setTags(editArticle.tags)
-    //                 setDate(editArticle.date)
-    //                 setEditor(editArticle.editor)
-    //             })
-    //             .catch(error => console.log(error))
-
-
-    //     }, [newId])
-
-    // }
-
-
     return (
         <form className='formContent' onSubmit={handleSubmit}>
 

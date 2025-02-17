@@ -1,6 +1,6 @@
 import './NewsDetailsPage.css'
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 export default function NewsDetailsPage() {
@@ -21,45 +21,61 @@ export default function NewsDetailsPage() {
     getNewById()
   }, [])
 
+  // Metodo para eliminar un registro
+  const navigate = useNavigate()
+
+  const handleDelete = () => {
+    const isConfirmed = window.confirm("¿Do you want to delete this article?")
+
+    if (isConfirmed) {
+      axios
+        .delete(`${API_URL}/${newId}`)
+        .then(() => {
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
     <div className='details-content' >
-              <div className='card-content' >
-                <div className='cardImage'>
-                  <img src={news.image} className="card-img-top" />
-                </div>
-                <div className="card-body">
-                  <p className="card-text">{news.title}</p>
-                </div>
-              </div>
+      <div className='card-content' >
+        <div className='cardImage'>
+          <img src={news.image} className="card-img-top" />
+        </div>
+        <div className="card-body">
+          <p className="card-text">{news.title}</p>
+        </div>
+      </div>
 
-              <div className='newsInfo'>
-                <p><i className="bi bi-person"></i>{news.editor}</p>
-                <p><i className="bi bi-calendar2-week"></i>{news.date}</p>
-              </div>
+      <div className='newsInfo'>
+        <p><i className="bi bi-person"></i>{news.editor}</p>
+        <p><i className="bi bi-calendar2-week"></i>{news.date}</p>
+      </div>
 
-              <hr />
+      <hr />
 
-              <div className='newsDescription'>
-                <h5>{news.subTitle}</h5>
-                <p>{news.article}</p>
+      <div className='newsDescription'>
+        <h5>{news.subTitle}</h5>
+        <p>{news.article}</p>
 
-                <h5>Tags</h5>
-                <p>{news.tags}</p>
-              </div>
+        <h5>Tags</h5>
+        <p>{news.tags}</p>
+      </div>
 
-              <hr />
+      <hr />
 
-              <div className='newsButtons'>
-                <Link to="/">
-                  <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
-                </Link>
+      <div className='newsButtons'>
+        <Link to="/">
+          <button className='btn-back' title='Back to home'><i className="bi bi-arrow-return-left"></i></button>
+        </Link>
 
-                <Link to={`/EditForm/${newId}`}>
-                  <button className='btn-edit' title='Edit new'><i className="bi bi-pencil-square"></i></button>
-                </Link>
+        <Link to={`/EditForm/${newId}`}>
+          <button className='btn-edit' title='Edit Article'><i className="bi bi-pencil-square"></i></button>
+        </Link>
 
-                <button className='btn-delete' title='Delete new'><i className="bi bi-trash-fill"></i></button>
-              </div>
+        <button className='btn-delete' title='Delete Article' onClick={handleDelete}><i className="bi bi-trash-fill"></i></button>
+      </div>
     </div>
   )
 }
