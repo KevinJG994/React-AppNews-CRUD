@@ -67,7 +67,7 @@ export default function AddForm({ counter }) {
                 <h5>Tags</h5>
                 <select name="Tags" value={tags} onChange={(e) => setTags(e.target.value)} className='tagSelect' required>
                     <option value="" disabled>---</option>
-                    <option value="Sports">Sports</option>
+                    <option value="Sports" className='sportsTag'>Sports</option>
                     <option value="Videogames">Videogames</option>
                     <option value="Economy">Economy</option>
                 </select>

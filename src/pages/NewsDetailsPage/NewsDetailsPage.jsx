@@ -37,6 +37,18 @@ export default function NewsDetailsPage() {
     }
   };
 
+
+  const getTagClass = (tag) => {
+    switch (tag) {
+      case 'Economy':
+        return 'tag-economy';
+      case 'Videogames':
+        return 'tag-videogames';
+      case 'Sports':
+        return 'tag-sports';
+    }
+  };
+
   return (
     <div className='details-content' >
       <div className='card-content' >
@@ -56,11 +68,11 @@ export default function NewsDetailsPage() {
       <hr />
 
       <div className='newsDescription'>
-        <h5>{news.subTitle}</h5>
-        <p>{news.article}</p>
+        <h5>{news.subtitle}</h5>
+        <p className='articleDescription'>{news.article}</p>
 
         <h5>Tags</h5>
-        <p>{news.tags}</p>
+        <p className={`tags ${getTagClass(news.tags)}`}>{news.tags}</p>
       </div>
 
       <hr />

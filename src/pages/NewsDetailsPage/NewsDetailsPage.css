@@ -12,7 +12,12 @@
 
 .newsDescription h5 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+}
+
+.articleDescription {
+    font-size: 1.3rem;
+    text-align: justify;
 }
 
 .cardImage {

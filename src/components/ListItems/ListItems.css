@@ -1,8 +1,6 @@
 .card-text {
-    margin: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    text-align: justify;
 }
 
 .card {
@@ -13,6 +11,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 625px;
 }
 
 .card-content {
@@ -24,14 +23,15 @@
 
 .cardImage {
     flex-shrink: 0;
-    width: 120px;
-    margin: 20px;
+    width: 350px;
 }
 
 .card-img-top {
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 170px;
     object-fit: cover;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .card-body {
@@ -43,12 +43,57 @@
 
 .newsInfo {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 10px;
     font-size: 1.2rem;
+
 }
 
 .newsInfo i {
     margin-right: 10px;
 }
+
+.tag-economy {
+    background: linear-gradient(to right, #fdc830, #f37335); 
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    max-width: 150px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.tag-videogames {
+    background: linear-gradient(to right, #00b4db, #0083b0);
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    max-width: 150px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.tag-sports {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: bold;
+    max-width: 150px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 830px) {
+    .newsInfo {
+        justify-content: space-between;
+        margin-left: 350px;
+    }
+    .newsInfo p {
+        font-size: 1rem;
+    }
+}
+

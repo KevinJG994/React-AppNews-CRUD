@@ -1,6 +1,6 @@
 import React from 'react'
 import './DashBoardPage.css'
-import ListItems from '../../components/ListItems/ListItems'
+import ListItems from '../../components/ListItems/ListITems'
 
 export default function DashBoardPage() {
     return (
@@ -15,22 +15,6 @@ export default function DashBoardPage() {
             </div>
 
           <ListItems/>
-
-            <div aria-label="Page navigation example">
-                <ul className="pagination justify-content-center">
-                    <li className="page-item disabled">
-                        <span className="page-link"> <i className="bi bi-arrow-left"></i></span>
-                    </li>
-                    <li className="page-item"><a className="page-link" href="#">1</a></li>
-                    <li className="page-item active" aria-current="page">
-                        <span className="page-link">2</span>
-                    </li>
-                    <li className="page-item"><a className="page-link" href="#">3</a></li>
-                    <li className="page-item">
-                        <a className="page-link" href="#"><i className="bi bi-arrow-right"></i></a>
-                    </li>
-                </ul>
-            </div>
         </div>
     )
 }
