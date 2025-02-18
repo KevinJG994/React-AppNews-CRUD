@@ -2,10 +2,11 @@ import './NewsDetailsPage.css'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { BACK_API } from '../../api'
 
 export default function NewsDetailsPage() {
   // Petición GET mediante Axios para obtener todos los elementos del Id seleccionado
-  const API_URL = 'http://localhost:5005/news'
+  const API_URL = `${BACK_API}/news`
   const [news, setNews] = useState([])
 
   const { newId } = useParams();
