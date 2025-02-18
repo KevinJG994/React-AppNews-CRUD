@@ -2,6 +2,7 @@ import './AddForm.css'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { BACK_API } from '../../api'
 
 export default function AddForm({ counter }) {
     const [title, setTitle] = useState("")
@@ -13,7 +14,7 @@ export default function AddForm({ counter }) {
     const [editor, setEditor] = useState("")
 
 
-    const API_URL = "http://localhost:5005/news"
+    const API_URL = `${BACK_API}`
     const navigate = useNavigate()
 
     // Función para agregar un nuevo registro

@@ -2,6 +2,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { BACK_API } from '../../api'
 
 export default function UpdateForm() {
     const [title, setTitle] = useState("")
@@ -12,7 +13,7 @@ export default function UpdateForm() {
     const [date, setDate] = useState("")
     const [editor, setEditor] = useState("")
 
-    const API_URL = "http://localhost:5005/news"
+    const API_URL = `${BACK_API}`
     const { newId } = useParams();
     const navigate = useNavigate()
 

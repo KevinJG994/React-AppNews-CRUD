@@ -2,9 +2,10 @@ import './ListItems.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { BACK_API } from '../../api';
 
 export default function ListItems({selectedCategory}) {
-    const API_URL = 'http://localhost:5005/news';
+    const API_URL = `${BACK_API}/news`;
     const [news, setNews] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3;
