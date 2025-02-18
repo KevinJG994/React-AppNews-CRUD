@@ -14,7 +14,7 @@ export default function AddForm({ counter }) {
     const [editor, setEditor] = useState("")
 
 
-    const API_URL = `${BACK_API}`
+    const API_URL = `${BACK_API}/news`
     const navigate = useNavigate()
 
     // Función para agregar un nuevo registro

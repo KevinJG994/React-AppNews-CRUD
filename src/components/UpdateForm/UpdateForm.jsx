@@ -13,7 +13,7 @@ export default function UpdateForm() {
     const [date, setDate] = useState("")
     const [editor, setEditor] = useState("")
 
-    const API_URL = `${BACK_API}`
+    const API_URL = `${BACK_API}/news`
     const { newId } = useParams();
     const navigate = useNavigate()
 
