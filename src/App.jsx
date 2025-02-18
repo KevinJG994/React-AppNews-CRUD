@@ -1,15 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import AddForm from './components/AddForm/AddForm'
+import UpdateForm from './components/UpdateForm/UpdateForm'
 
 import DashBoardPage from './pages/DashBoardPage/DashBoardPage'
 import NewsDetailsPage from './pages/NewsDetailsPage/NewsDetailsPage'
 import AboutPage from './pages/AboutPage/AboutPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
-import AddForm from './components/AddForm/AddForm'
-import { useState } from 'react'
-import UpdateForm from './components/UpdateForm/UpdateForm'
 
 function App() {
   const [counter, setCounter] = useState(10)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './DashBoardPage.css'
-import ListItems from '../../components/ListItems/ListITems'
+import ListItems from '../../components/ListItems/ListItems'
 
 export default function DashBoardPage() {
     const [selectedCategory, setSelectedCategory] = useState(null);
