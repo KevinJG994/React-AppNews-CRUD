@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function ListItems() {
+export default function ListItems({selectedCategory}) {
     const API_URL = 'http://localhost:5005/news';
     const [news, setNews] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -27,10 +27,14 @@ export default function ListItems() {
         }
     };
 
+    const filteredNews = selectedCategory
+        ? news.filter(item => item.tags === selectedCategory)
+        : news;
+
     // Lógica de paginación
-    const totalPages = Math.ceil(news.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
+    const currentNews = filteredNews.slice(startIndex, startIndex + itemsPerPage);
 
     const changePage = (newPage) => {
         if (newPage >= 1 && newPage <= totalPages) {
