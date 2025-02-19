@@ -1,0 +1,15 @@
+.editor-img{
+    width: 300px;
+}
+
+.editor-name {
+    font-size: 3.2rem;
+}
+
+.editorSince {
+    font-size: 1.4rem;
+}
+
+.editorSince i {
+    margin-right: 15px;
+}

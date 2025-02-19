@@ -11,6 +11,7 @@ export default function NewsDetailsPage() {
 
   const { newId } = useParams();
 
+  // Metodo para obtener la noticia por su Id
   const getNewById = () => {
     axios
       .get(`${API_URL}/${newId}`)
@@ -39,6 +40,7 @@ export default function NewsDetailsPage() {
   };
 
 
+  // Condición para cambiar el estilo dependendion el tag
   const getTagClass = (tag) => {
     switch (tag) {
       case 'Economy':
@@ -49,6 +51,30 @@ export default function NewsDetailsPage() {
         return 'tag-sports';
     }
   };
+
+
+  // Metodo para obtener el editor por su Id
+  const [editors, setEditors] = useState([]);
+  const [editorId, setEditorId] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`${BACK_API}/editors`)
+      .then(response => {
+        setEditors(response.data);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    if (news.editor && editors.length > 0) {
+      const matchedEditor = editors.find(e => e.name.toLowerCase() === news.editor.toLowerCase());
+      if (matchedEditor) {
+        setEditorId(matchedEditor.id);
+      }
+    }
+  }, [news.editor, editors]);
+
 
   return (
     <div className='details-content' >
@@ -62,7 +88,10 @@ export default function NewsDetailsPage() {
       </div>
 
       <div className='newsInfo'>
-        <p><i className="bi bi-person"></i>{news.editor}</p>
+
+        <Link to={`/editorPage/${editorId}`}>
+          <p className='editorLink' title='Editor Details'><i className="bi bi-person"></i>{news.editor}</p>
+        </Link>
         <p><i className="bi bi-calendar2-week"></i>{news.date}</p>
       </div>
 

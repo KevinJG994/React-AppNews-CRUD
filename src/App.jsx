@@ -10,6 +10,7 @@ import DashBoardPage from './pages/DashBoardPage/DashBoardPage'
 import NewsDetailsPage from './pages/NewsDetailsPage/NewsDetailsPage'
 import AboutPage from './pages/AboutPage/AboutPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
+import EditorPage from './pages/EditorPage/EditorPage'
 
 function App() {
   const [counter, setCounter] = useState(10)
@@ -28,6 +29,7 @@ function App() {
         <Route path='/aboutPage' element={<AboutPage />} />
         <Route path='/addForm' element={<AddForm counter={addCounter} />} />
         <Route path='/EditForm/:newId' element={<UpdateForm />} />
+        <Route path='/editorPage/:editorId' element={<EditorPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
