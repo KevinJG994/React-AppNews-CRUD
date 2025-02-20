@@ -1,8 +1,10 @@
 .NotFound-container {
     background-color: white;
+    display: flex;
+    margin: auto;
+    height: 80vh;
 }
 
 .NotFoundImg {
-    display: flex;
-    margin: auto;
+    margin: 0 auto;
 }

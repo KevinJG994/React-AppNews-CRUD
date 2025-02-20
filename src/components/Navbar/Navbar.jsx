@@ -6,13 +6,13 @@ function Navbar() {
     <nav>
       <div className="logo-container">
         <Link to="/">
-          <img src="./assets/KevTech.png" alt="KevTech-logo" title="Go home"/>
+          <img src="./assets/KevNews.png" alt="KevNews-logo" title="Go home"/>
         </Link>
       </div>
 
       <div className="menu-container">
         <Link to="/addForm">
-          <i className="bi bi-plus-circle-fill" title="Add New"></i>
+          <i className="bi bi-plus-circle-fill" title="Add Article"></i>
         </Link>
       </div>
     </nav>
