@@ -4,7 +4,7 @@
 
 # <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png" width="30" /> React | NewsApp Dashboard
 
-Este repositorio contiene un dashboard de administración para una web de noticias, donde el usuario puede:
+Este repositorio contiene un dashboard de administración para una web de noticias, donde el usuario puede realizar peticiones HTTP para:
 
 - Previsualizar distintas noticias. <br>
 - Filtrar por tipos de noticias. <br>
@@ -18,9 +18,8 @@ Todo esto se gestiona desde el FrontEnd, consumiendo una API simulada.
 ### 🎯 El resultado obtenido es el siguiente:
 <br>
 
-
-<p align="center" width="800px">
-  <img src="https://github.com/user-attachments/assets/c440f6e4-1459-4dff-aa52-db730d34a60a" />
+<p align="center" width="400px">
+  <img src="https://github.com/user-attachments/assets/23d2cc3b-f4d7-40f0-9640-1314c7a2e92f" />
 </p>
 
 <br>
@@ -45,6 +44,8 @@ Tecnologías utilizadas en este proyecto:
   npm install react-router-dom
   
   npm install bootstrap
+
+  npm install axios
   ```
 
 - Ejecutamos el proyecto con el siguiente comando:
