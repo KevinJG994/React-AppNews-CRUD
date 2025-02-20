@@ -6,7 +6,7 @@ function Navbar() {
     <nav>
       <div className="logo-container">
         <Link to="/">
-          <img src="./src/assets/KevTech.png" alt="KevTech-logo" title="Go home"/>
+          <img src="./assets/KevTech.png" alt="KevTech-logo" title="Go home"/>
         </Link>
       </div>
 

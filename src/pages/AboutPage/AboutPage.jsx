@@ -8,7 +8,7 @@ export default function AboutPage() {
             <p>This application is a NewsApp for managing news in React. You can perform a complete CRUD of news. It is integrated with a mock backend server.</p>
 
             <div className="developer_profile">
-                <img src="../src/assets/developer_image.png" alt="developer_image" />
+                <img src="../assets/developer_image.png" alt="developer_image" />
                 <h3>Kevin Jiménez</h3>
                 <ul>
                     <li>
