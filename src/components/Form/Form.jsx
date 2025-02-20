@@ -1,10 +1,10 @@
-
+import './Form.css'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { BACK_API } from '../../api'
 
-export default function UpdateForm() {
+export default function Form() {
     const [title, setTitle] = useState("")
     const [subtitle, setSubTitle] = useState("")
     const [image, setImage] = useState("")
@@ -13,44 +13,58 @@ export default function UpdateForm() {
     const [date, setDate] = useState("")
     const [editor, setEditor] = useState("")
 
+
     const API_URL = `${BACK_API}/news`
-    const { newId } = useParams();
     const navigate = useNavigate()
 
+    const { newId } = useParams();
+    const isEditing = (newId) // Constante para saber si ID es igual a true
+
+
     useEffect(() => {
-        axios
-            .get(`${API_URL}/${newId}`)
-            .then(response => {
-                const editArticle = response.data
-                setTitle(editArticle.title)
-                setSubTitle(editArticle.subtitle)
-                setImage(editArticle.image)
-                setArticle(editArticle.article)
-                setTags(editArticle.tags)
-                setDate(editArticle.date)
-                setEditor(editArticle.editor)
-            })
-            .catch(error => console.log(error))
+        if (isEditing) { //Si existe ID, lo selecciona y obtenemos el formulario con los datos de ese ID
+            axios
+                .get(`${API_URL}/${newId}`)
+                .then(response => {
+                    const editArticle = response.data
+                    setTitle(editArticle.title)
+                    setSubTitle(editArticle.subtitle)
+                    setImage(editArticle.image)
+                    setArticle(editArticle.article)
+                    setTags(editArticle.tags)
+                    setDate(editArticle.date)
+                    setEditor(editArticle.editor)
+                })
+                .catch(error => console.log(error))
+        }
     }, [newId])
 
-    // Función para modificar un nuevo registro
-    const handleUpdateSubmit = (e) => {
+
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        const edit = { title, subtitle, image, article, tags, date, editor }
+        const formData = { title, subtitle, image, article, tags, date, editor }
 
+        if (isEditing) { //Si existe el ID editamos
+            axios
+                .put(`${API_URL}/${newId}`, formData)
+                .then(response => {
 
-        axios
-            .put(`${API_URL}/${newId}`, edit)
-            .then(response => {
-
-                navigate(`/newsDetailsPage/${newId}`);
-            })
-            .catch(error => console.log(error))
+                    navigate(`/newsDetailsPage/${newId}`);
+                })
+                .catch(error => console.log(error))
+        } else { //Si no existe el ID se crea un nuevo registro
+            axios
+                .post(`${API_URL}`, formData)
+                .then(response => {
+                    navigate("/");
+                })
+                .catch(error => console.log(error))
+        }
     }
 
     return (
-        <form className='formContent' onSubmit={handleUpdateSubmit}>
+        <form className='formContent' onSubmit={handleSubmit}>
 
             <div className='form-header' >
                 <div className='form-img'>

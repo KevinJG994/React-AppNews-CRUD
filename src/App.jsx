@@ -1,23 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
-import AddForm from './components/AddForm/AddForm'
-import UpdateForm from './components/UpdateForm/UpdateForm'
 
 import DashBoardPage from './pages/DashBoardPage/DashBoardPage'
 import NewsDetailsPage from './pages/NewsDetailsPage/NewsDetailsPage'
 import AboutPage from './pages/AboutPage/AboutPage'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 import EditorPage from './pages/EditorPage/EditorPage'
+import Form from './components/Form/Form'
 
 function App() {
-  const [counter, setCounter] = useState(10)
-
-  const addCounter = () => {
-    setCounter(counter => counter + 1)
-  }
 
   return (
     <>
@@ -27,8 +20,8 @@ function App() {
         <Route path='/' element={<DashBoardPage />} />
         <Route path='/newsDetailsPage/:newId' element={<NewsDetailsPage />} />
         <Route path='/aboutPage' element={<AboutPage />} />
-        <Route path='/addForm' element={<AddForm counter={addCounter} />} />
-        <Route path='/EditForm/:newId' element={<UpdateForm />} />
+        <Route path='/addForm' element={<Form />} />
+        <Route path='/EditForm/:newId' element={<Form />} />
         <Route path='/editorPage/:editorId' element={<EditorPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
